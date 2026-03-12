@@ -15,7 +15,7 @@ def bytes_to_state(bytes_data):
     for col in range(4):
         # Loop over rows inside each column
         for row in range(4):
-            state[col][row] = bytes_data[byte_index]
+            state[row][col] = bytes_data[byte_index]
             byte_index += 1
 
     return state
