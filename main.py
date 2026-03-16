@@ -3,6 +3,7 @@ from functions import bytes_to_state
 from functions import state_to_hexa
 from functions.key_expansion import key_expansion
 from functions.add_round_key import add_round_key
+from functions.sub_byte import sub_bytes
 import os
 
 message = "HELLO_AES_123456"
@@ -43,4 +44,17 @@ org_new_state = add_round_key(new_state, round_key_0)
 
 print("State after AddRoundKey (round 0):")
 for row in org_new_state:
+    print(row)
+
+#--------------------
+# Test sub_bytes function
+print("\n--- Testing SubBytes ---")
+print("State before SubBytes:")
+for row in new_state:
+    print(row)
+
+sub_byte_state = sub_bytes(org_new_state)
+
+print("\nState after SubBytes:")
+for row in sub_byte_state:
     print(row)
