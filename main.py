@@ -4,6 +4,7 @@ from functions import state_to_hexa
 from functions.key_expansion import key_expansion
 from functions.add_round_key import add_round_key
 from functions.sub_byte import sub_bytes
+from functions.shift_row import shift_rows
 import os
 
 message = "HELLO_AES_123456"
@@ -57,4 +58,17 @@ sub_byte_state = sub_bytes(org_new_state)
 
 print("\nState after SubBytes:")
 for row in sub_byte_state:
+    print(row)
+
+#--------------------
+# Test shift_rows function
+print("\n--- Testing ShiftRows ---")
+print("State before ShiftRows:")
+for row in sub_byte_state:
+    print(row)
+
+shift_row_state = shift_rows(sub_byte_state)
+
+print("\nState after ShiftRows:")
+for row in shift_row_state:
     print(row)
