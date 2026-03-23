@@ -12,3 +12,11 @@ def text_to_bytes(text):
         byte_list.append(ascii_value)
 
     return byte_list
+
+
+def bytes_to_text(byte_list):
+    # Convert each UTF-8 value back to its character
+    text = ""
+    for byte in byte_list:
+        text += chr(byte)
+    return text
