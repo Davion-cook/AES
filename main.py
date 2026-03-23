@@ -5,6 +5,7 @@ from functions.key_expansion import key_expansion
 from functions.add_round_key import add_round_key
 from functions.sub_byte import sub_bytes
 from functions.shift_row import shift_rows
+from functions.mix_columns import mix_columns
 import os
 
 message = "HELLO_AES_123456"
@@ -71,4 +72,17 @@ shift_row_state = shift_rows(sub_byte_state)
 
 print("\nState after ShiftRows:")
 for row in shift_row_state:
+    print(row)
+
+#--------------------
+# Test mix_columns function
+print("\n--- Testing MixColumns ---")
+print("State before MixColumns:")
+for row in shift_row_state:
+    print(row)
+
+mix_col_state = mix_columns(shift_row_state)
+
+print("\nState after MixColumns:")
+for row in mix_col_state:
     print(row)
